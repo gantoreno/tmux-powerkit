@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/fabioluciano/tmux-powerkit/compare/v3.8.0...v3.8.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* **bluetooth:** fixing bluetooth plugin ([#118](https://github.com/fabioluciano/tmux-powerkit/issues/118)) ([5c31fb0](https://github.com/fabioluciano/tmux-powerkit/commit/5c31fb0b6714e382cc4b133901eeb9ad91c51e42))
+
 # [3.8.0](https://github.com/fabioluciano/tmux-powerkit/compare/v3.7.1...v3.8.0) (2025-12-14)
 
 
