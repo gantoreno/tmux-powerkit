@@ -1,3 +1,10 @@
+## [4.0.4](https://github.com/fabioluciano/tmux-powerkit/compare/v4.0.3...v4.0.4) (2025-12-17)
+
+
+### Bug Fixes
+
+* handle unbound variable errors in battery display and package manager detection; enhance SSH destination retrieval ([1ff6133](https://github.com/fabioluciano/tmux-powerkit/commit/1ff613319aa1c19e212c06484c757d28d57c2cf3))
+
 ## [4.0.3](https://github.com/fabioluciano/tmux-powerkit/compare/v4.0.2...v4.0.3) (2025-12-17)
 
 
