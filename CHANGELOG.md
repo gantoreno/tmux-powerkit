@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/fabioluciano/tmux-powerkit/compare/v4.0.2...v4.0.3) (2025-12-17)
+
+
+### Bug Fixes
+
+* update theme colors for improved consistency across various themes ([#133](https://github.com/fabioluciano/tmux-powerkit/issues/133)) ([8b7d092](https://github.com/fabioluciano/tmux-powerkit/commit/8b7d092bdf490384a3777dfc223cc55777cea009))
+
 ## [4.0.2](https://github.com/fabioluciano/tmux-powerkit/compare/v4.0.1...v4.0.2) (2025-12-17)
 
 
