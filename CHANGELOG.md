@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/fabioluciano/tmux-powerkit/compare/v5.0.0...v5.0.1) (2025-12-27)
+
+
+### Bug Fixes
+
+* update links in README for documentation consistency ([7553fd9](https://github.com/fabioluciano/tmux-powerkit/commit/7553fd9e72bde30a45907ac5413452515b5a6dbd))
+
 # [5.0.0](https://github.com/fabioluciano/tmux-powerkit/compare/v4.4.0...v5.0.0) (2025-12-27)
 
 
