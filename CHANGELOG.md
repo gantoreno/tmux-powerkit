@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.0.2...v5.1.0) (2025-12-28)
+
+
+### Features
+
+* refactor rendering system with entity-based compositor architecture; enhance Linux plugin support ([#145](https://github.com/fabioluciano/tmux-powerkit/issues/145)) ([ce0a11a](https://github.com/fabioluciano/tmux-powerkit/commit/ce0a11a7760fbd2f835c79ba3839afb414639f94)), closes [hi#level](https://github.com/hi/issues/level)
+
 ## [5.0.2](https://github.com/fabioluciano/tmux-powerkit/compare/v5.0.1...v5.0.2) (2025-12-27)
 
 
