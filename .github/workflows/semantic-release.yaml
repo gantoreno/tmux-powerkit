@@ -15,12 +15,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-13
-            arch: x86_64
-            suffix: darwin-amd64
-          - os: macos-14
+          - os: macos-15
             arch: arm64
             suffix: darwin-arm64
+          - os: macos-15-intel
+            arch: x86_64
+            suffix: darwin-amd64
     
     runs-on: ${{ matrix.os }}
     
