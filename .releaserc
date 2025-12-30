@@ -21,51 +21,23 @@
       }
     ],
     [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "NEXT_RELEASE_VERSION=${nextRelease.version} sh scripts/build.sh $BUILD_SUFFIX",
-        "publishCmd": "echo '✓ Build ${nextRelease.version} completed for $BUILD_SUFFIX'"
-      }
-    ],
-    [
       "@semantic-release/github",
       {
         "assets": [
-          {
-            "path": "dist/powerkit-brightness-${process.env.BUILD_SUFFIX}",
-            "label": "🔆 powerkit-brightness for ${process.env.BUILD_SUFFIX}",
-            "name": "powerkit-brightness-${process.env.BUILD_SUFFIX}"
-          },
-          {
-            "path": "dist/powerkit-nowplaying-${process.env.BUILD_SUFFIX}",
-            "label": "🎵 powerkit-nowplaying for ${process.env.BUILD_SUFFIX}",
-            "name": "powerkit-nowplaying-${process.env.BUILD_SUFFIX}"
-          },
-          {
-            "path": "dist/powerkit-temperature-${process.env.BUILD_SUFFIX}",
-            "label": "🌡️ powerkit-temperature for ${process.env.BUILD_SUFFIX}",
-            "name": "powerkit-temperature-${process.env.BUILD_SUFFIX}"
-          },
-          {
-            "path": "dist/powerkit-gpu-${process.env.BUILD_SUFFIX}",
-            "label": "🎮 powerkit-gpu for ${process.env.BUILD_SUFFIX}",
-            "name": "powerkit-gpu-${process.env.BUILD_SUFFIX}"
-          },
-          {
-            "path": "dist/powerkit-microphone-${process.env.BUILD_SUFFIX}",
-            "label": "🎤 powerkit-microphone for ${process.env.BUILD_SUFFIX}",
-            "name": "powerkit-microphone-${process.env.BUILD_SUFFIX}"
-          },
-          {
-            "path": "dist/SHA256SUMS-${process.env.BUILD_SUFFIX}.txt",
-            "label": "✓ Checksums (SHA256) for ${process.env.BUILD_SUFFIX}",
-            "name": "SHA256SUMS-${process.env.BUILD_SUFFIX}.txt"
-          },
-          {
-            "path": "dist/BUILD-INFO-${process.env.BUILD_SUFFIX}.txt",
-            "label": "ℹ️ Build Information for ${process.env.BUILD_SUFFIX}",
-            "name": "BUILD-INFO-${process.env.BUILD_SUFFIX}.txt"
-          }
+          { "path": "dist/powerkit-brightness-darwin-arm64", "label": "powerkit-brightness (Apple Silicon)" },
+          { "path": "dist/powerkit-brightness-darwin-amd64", "label": "powerkit-brightness (Intel)" },
+          { "path": "dist/powerkit-nowplaying-darwin-arm64", "label": "powerkit-nowplaying (Apple Silicon)" },
+          { "path": "dist/powerkit-nowplaying-darwin-amd64", "label": "powerkit-nowplaying (Intel)" },
+          { "path": "dist/powerkit-temperature-darwin-arm64", "label": "powerkit-temperature (Apple Silicon)" },
+          { "path": "dist/powerkit-temperature-darwin-amd64", "label": "powerkit-temperature (Intel)" },
+          { "path": "dist/powerkit-gpu-darwin-arm64", "label": "powerkit-gpu (Apple Silicon)" },
+          { "path": "dist/powerkit-gpu-darwin-amd64", "label": "powerkit-gpu (Intel)" },
+          { "path": "dist/powerkit-microphone-darwin-arm64", "label": "powerkit-microphone (Apple Silicon)" },
+          { "path": "dist/powerkit-microphone-darwin-amd64", "label": "powerkit-microphone (Intel)" },
+          { "path": "dist/SHA256SUMS-darwin-arm64.txt", "label": "Checksums (Apple Silicon)" },
+          { "path": "dist/SHA256SUMS-darwin-amd64.txt", "label": "Checksums (Intel)" },
+          { "path": "dist/BUILD-INFO-darwin-arm64.txt", "label": "Build Info (Apple Silicon)" },
+          { "path": "dist/BUILD-INFO-darwin-amd64.txt", "label": "Build Info (Intel)" }
         ],
         "successComment": false,
         "failComment": false
