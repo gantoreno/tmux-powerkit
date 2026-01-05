@@ -2,6 +2,12 @@
 
 All notable changes to tmux-powerkit will be documented in this file.
 
+## [5.7.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.6.0...v5.7.0) (2026-01-05)
+
+### Features
+
+* Add popup and menu color definitions across various themes ([2bf0369](https://github.com/fabioluciano/tmux-powerkit/commit/2bf03698feefc2f1d0e159dd169ab77cde11bb57))
+
 ## [5.6.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.5.0...v5.6.0) (2026-01-05)
 
 ### Features
