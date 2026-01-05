@@ -2,6 +2,20 @@
 
 All notable changes to tmux-powerkit will be documented in this file.
 
+## [5.6.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.5.0...v5.6.0) (2026-01-05)
+
+### Features
+
+* **pane:** add border status background and unified border options ([8c40e47](https://github.com/fabioluciano/tmux-powerkit/commit/8c40e4730253bae1bedf15759bfcd8003107f3b5))
+* **plugins:** add plugin groups with group() syntax ([7d17301](https://github.com/fabioluciano/tmux-powerkit/commit/7d1730192c0a40a847375ed398392775a72b917c))
+* **plugins:** add plugin groups with group() syntax ([dac7f15](https://github.com/fabioluciano/tmux-powerkit/commit/dac7f15dd8c516268cd19ed7bf4313141bb4d50f))
+* **plugins:** implement external plugin rendering support ([9d972a6](https://github.com/fabioluciano/tmux-powerkit/commit/9d972a6fe27bc6866382c37fe5610f5ddb9b754b)), closes [#S](https://github.com/fabioluciano/tmux-powerkit/issues/S) [#I](https://github.com/fabioluciano/tmux-powerkit/issues/I) [#W](https://github.com/fabioluciano/tmux-powerkit/issues/W)
+* **themes:** add 19 new themes with 29 variants ([d4f0b30](https://github.com/fabioluciano/tmux-powerkit/commit/d4f0b301c180c7637290fc61cdbf9f48312ec4e7))
+
+### Bug Fixes
+
+* **windows:** correct window index icon codepoints and support base-index ([74dc99b](https://github.com/fabioluciano/tmux-powerkit/commit/74dc99b298bc0e558733b9a7036791565efa7691))
+
 ## [5.5.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.4.0...v5.5.0) (2025-12-30)
 
 ### Features
