@@ -2,6 +2,12 @@
 
 All notable changes to tmux-powerkit will be documented in this file.
 
+## [5.10.1](https://github.com/fabioluciano/tmux-powerkit/compare/v5.10.0...v5.10.1) (2026-01-08)
+
+### Bug Fixes
+
+* reload from prefix+R to prefix+r ([1a6050a](https://github.com/fabioluciano/tmux-powerkit/commit/1a6050a987f0c285a4de769161cca37c12ae4b16))
+
 ## [5.10.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.9.1...v5.10.0) (2026-01-08)
 
 ### Features
