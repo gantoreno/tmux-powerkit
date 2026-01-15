@@ -2,6 +2,16 @@
 
 All notable changes to tmux-powerkit will be documented in this file.
 
+## [5.13.1](https://github.com/fabioluciano/tmux-powerkit/compare/v5.13.0...v5.13.1) (2026-01-15)
+
+### Features
+
+* Added Nix packaging. Supports flake and non-flake installation. ([7e5fb95](https://github.com/fabioluciano/tmux-powerkit/commit/7e5fb95c9da2c83b247b5a8eb538212f7f0d8ff5))
+
+### Bug Fixes
+
+* update window index display logic and remove deprecated function ([9d714cd](https://github.com/fabioluciano/tmux-powerkit/commit/9d714cdb9e6b47d8d184d54da7296f4a4c885864))
+
 ## [5.13.0](https://github.com/fabioluciano/tmux-powerkit/compare/v5.12.0...v5.13.0) (2026-01-14)
 
 ### Features
