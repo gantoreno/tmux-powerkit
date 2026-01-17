@@ -119,6 +119,12 @@ POWERKIT_DEFAULT_CUSTOM_THEME_PATH=""
 # When true, uses terminal background color for status bar
 POWERKIT_DEFAULT_TRANSPARENT="false"
 
+# @powerkit_theme_cache_enabled - Enable/disable theme color caching
+# Values: "true", "false"
+# When false, theme colors are always loaded from file (useful for theme development)
+# When true, theme colors are cached for 24 hours for performance
+POWERKIT_DEFAULT_THEME_CACHE_ENABLED="true"
+
 # =============================================================================
 # PLUGIN CONFIGURATION
 # =============================================================================

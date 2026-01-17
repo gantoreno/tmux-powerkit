@@ -98,32 +98,41 @@ load_theme() {
     local theme="${1:-${POWERKIT_DEFAULT_THEME}}"
     local variant="${2:-${POWERKIT_DEFAULT_THEME_VARIANT}}"
 
+    # Check if theme caching is enabled
+    local cache_enabled
+    cache_enabled=$(get_tmux_option "@powerkit_theme_cache_enabled" "${POWERKIT_DEFAULT_THEME_CACHE_ENABLED}")
+
     # Fast path: if same theme/variant is already in memory with colors+variants, reuse
-    if [[ "$_CURRENT_THEME" == "$theme" && "$_CURRENT_VARIANT" == "$variant" && ${#THEME_COLORS[@]} -gt 0 && ${#_COLOR_VARIANTS[@]} -gt 0 ]]; then
+    # (only when caching is enabled)
+    if [[ "$cache_enabled" == "true" && "$_CURRENT_THEME" == "$theme" && "$_CURRENT_VARIANT" == "$variant" && ${#THEME_COLORS[@]} -gt 0 && ${#_COLOR_VARIANTS[@]} -gt 0 ]]; then
         log_debug "theme_loader" "Using in-memory theme: $theme/$variant"
         return 0
     fi
 
-    # Try to load from color cache first
+    # Try to load from color cache first (only if caching is enabled)
     local cache_key="theme_colors__${theme}__${variant}"
-    local cached_colors
-    cached_colors=$(cache_get "$cache_key" 86400 2>/dev/null)  # 24h TTL
-    
-    if [[ -n "$cached_colors" ]]; then
-        log_debug "theme_loader" "Loading theme from cache: $theme/$variant"
-        deserialize_theme_colors "$cached_colors"
-        # Validate cache contents; if empty or corrupted, fall back to file load
-        if [[ ${#THEME_COLORS[@]} -gt 0 && ${#_COLOR_VARIANTS[@]} -gt 0 ]]; then
-            _CURRENT_THEME="$theme"
-            _CURRENT_VARIANT="$variant"
-            _save_theme_cache
-            log_debug "theme_loader" "Cache valid for: $theme/$variant"
-            return 0
-        else
-            log_warn "theme_loader" "Theme cache invalid/empty, reloading from file: $theme/$variant"
-            THEME_COLORS=()
-            clear_color_variants
+    if [[ "$cache_enabled" == "true" ]]; then
+        local cached_colors
+        cached_colors=$(cache_get "$cache_key" 86400 2>/dev/null)  # 24h TTL
+
+        if [[ -n "$cached_colors" ]]; then
+            log_debug "theme_loader" "Loading theme from cache: $theme/$variant"
+            deserialize_theme_colors "$cached_colors"
+            # Validate cache contents; if empty or corrupted, fall back to file load
+            if [[ ${#THEME_COLORS[@]} -gt 0 && ${#_COLOR_VARIANTS[@]} -gt 0 ]]; then
+                _CURRENT_THEME="$theme"
+                _CURRENT_VARIANT="$variant"
+                _save_theme_cache
+                log_debug "theme_loader" "Cache valid for: $theme/$variant"
+                return 0
+            else
+                log_warn "theme_loader" "Theme cache invalid/empty, reloading from file: $theme/$variant"
+                THEME_COLORS=()
+                clear_color_variants
+            fi
         fi
+    else
+        log_debug "theme_loader" "Theme caching disabled, loading from file"
     fi
 
     # Get theme file path
@@ -161,26 +170,28 @@ load_theme() {
     # Generate color variants
     generate_color_variants
 
-    # Cache all colors (base + variants) in a single file
-    local serialized
-    serialized=$(serialize_theme_colors)
-    cache_set "$cache_key" "$serialized"
+    # Cache all colors (base + variants) in a single file (only if caching is enabled)
+    if [[ "$cache_enabled" == "true" ]]; then
+        local serialized
+        serialized=$(serialize_theme_colors)
+        cache_set "$cache_key" "$serialized"
 
-    # Verify cache persisted; if not, log and continue with in-memory colors
-    if ! cache_get "$cache_key" 86400 >/dev/null 2>&1; then
-        log_warn "theme_loader" "Failed to persist theme cache (will reuse in-memory colors): $cache_key"
-    else
-        log_debug "theme_loader" "Persisted theme cache: $cache_key"
+        # Verify cache persisted; if not, log and continue with in-memory colors
+        if ! cache_get "$cache_key" 86400 >/dev/null 2>&1; then
+            log_warn "theme_loader" "Failed to persist theme cache (will reuse in-memory colors): $cache_key"
+        else
+            log_debug "theme_loader" "Persisted theme cache: $cache_key"
+        fi
     fi
 
     # Update current theme
     _CURRENT_THEME="$theme"
     _CURRENT_VARIANT="$variant"
 
-    # Save to cache
+    # Save to cache (theme name/variant - always saved for theme selector)
     _save_theme_cache
 
-    log_info "theme_loader" "Loaded theme: $theme/$variant with ${#THEME_COLORS[@]} base colors + variants (cached)"
+    log_info "theme_loader" "Loaded theme: $theme/$variant with ${#THEME_COLORS[@]} base colors + variants${cache_enabled:+ (cached)}"
     return 0
 }
 
