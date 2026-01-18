@@ -439,9 +439,9 @@ render_plugin_segment() {
     fi
 
     # Icon section (no bold - icons don't need emphasis)
-    # No left padding (separator provides visual space), only right padding
+    # Symmetric padding (space before and after icon)
     if [[ -n "$icon" ]]; then
-        segment+="#[fg=${icon_fg},bg=${icon_bg}]${icon} "
+        segment+="#[fg=${icon_fg},bg=${icon_bg}] ${icon} "
         # Internal separator between icon and content
         if [[ "$side" == "left" ]]; then
             # Right-pointing (▶): fg=source (icon), bg=destination (content)
