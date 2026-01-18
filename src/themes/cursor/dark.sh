@@ -22,7 +22,7 @@ declare -gA THEME_COLORS=(
     [window-inactive-base]="#505050" # Inactive windows
 
     # Pane Borders
-    [pane-border-active]="#82d2ce"   # Active pane (teal)
+    [pane-border-active]="#87a6c4"   # Active pane (teal)
     [pane-border-inactive]="#505050" # Inactive panes
 
     # Health States
