@@ -90,6 +90,9 @@ discover_plugins() {
     local plugins_str
     plugins_str=$(get_tmux_option "@powerkit_plugins" "${POWERKIT_DEFAULT_PLUGINS}")
 
+    # "none" explicitly disables all plugins
+    [[ "$plugins_str" == "none" ]] && return 0
+
     [[ -z "$plugins_str" ]] && {
         log_warn "lifecycle" "No plugins configured in @powerkit_plugins"
         return 0

@@ -185,7 +185,7 @@ _extract_plugin_names() {
 # Usage: _setup_plugin_keybindings "plugin1,plugin2,..."
 _setup_plugin_keybindings() {
     local plugins_str="$1"
-    [[ -z "$plugins_str" ]] && return 0
+    [[ -z "$plugins_str" || "$plugins_str" == "none" ]] && return 0
 
     # NOTE: Core modules and utilities are already loaded by _load_core_modules() and _load_utils_modules()
     # No need to re-source them here

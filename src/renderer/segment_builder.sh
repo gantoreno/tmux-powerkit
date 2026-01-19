@@ -675,7 +675,8 @@ render_plugins() {
     # Get plugin list
     local plugins_str
     plugins_str=$(get_tmux_option "@powerkit_plugins" "${POWERKIT_DEFAULT_PLUGINS}")
-    [[ -z "$plugins_str" ]] && return 0
+    # "none" explicitly disables all plugins
+    [[ -z "$plugins_str" || "$plugins_str" == "none" ]] && return 0
 
     # Parse plugin list with group support
     _parse_plugin_list "$plugins_str"

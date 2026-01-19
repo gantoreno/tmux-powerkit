@@ -126,6 +126,10 @@ _render_background() {
 # Main Execution
 # =============================================================================
 
+# Early exit if plugins explicitly disabled
+plugins_str=$(get_tmux_option "@powerkit_plugins" "${POWERKIT_DEFAULT_PLUGINS}")
+[[ "$plugins_str" == "none" ]] && exit 0
+
 # Determine side
 side="${1:-}"
 if [[ -z "$side" ]]; then
